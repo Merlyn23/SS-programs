@@ -1,0 +1,27 @@
+a)Write a LEX program to eliminate comment lines in a C program and copy the resulting program into a separate file.
+
+Lex program:
+
+%{
+#include<stdio.h>
+%}
+
+%s multi single
+%%
+"/*" {BEGIN multi;}
+<multi>"*/" {BEGIN 0;}
+<multi>\n {;}
+<multi>. {;}
+"//" {BEGIN single;}
+<single>\n {;}
+<single>. {;}
+%%
+
+void main()
+{
+
+yyin=fopen("src.c","r");
+yyout=fopen("dest.c","w");
+yylex();
+printf("Program Executed\n");
+}
