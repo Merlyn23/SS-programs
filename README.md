@@ -1,1 +1,6 @@
 # SS-programs
+PROGRAM 5 REQUIRES A TEXT FILE WITH INPUT 
+T1 = -B
+T2 = C + D
+T3 = T1* T2
+A = T3
